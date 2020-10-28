@@ -6,13 +6,13 @@ from selenium.webdriver.chrome.options import Options
 
 
 def pytest_addoption(parser):
-    parser.addoption("--browser", default="safari")
+    parser.addoption("--browser", default="chrome")
     parser.addoption("--driver_folder", default="/Users/Ilya/Documents/drivers")
 
 
 @pytest.fixture(scope="session")
 def browser(request):
-    browser = request.config.getoption("chrome")
+    browser = request.config.getoption("browser")
     folder = request.config.getoption("driver_folder")
 
     if browser == "firefox":
